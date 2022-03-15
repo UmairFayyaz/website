@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&?family=Roboto:wght@400;900&family=Roboto&display=swap" rel="stylesheet">
+
+<!-- //bootstrap -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Font Awesome Icon Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .top
+        {
+            text-align: center;
+            width: 100%;
+            height: 45px;
+            color: white;
+            background-color: rgb(8, 8, 117);
+            font-size: 17px;
+             font-family:'Roboto Condensed', sans-serif;
+             font-style: normal;
+             font-weight: 400;
+             line-height: 1.5;
+             padding-top: 10px;
+        }
+        #nav
+        {
+            padding: 0;
+            margin: 0;
+            box-shadow: 5px 2px 8px #888888d2;
+            height:80px;
+        }
+        #tabs>ul
+        {
+            display: flex;
+            justify-content: center;
+        }
+        #tabs ul>li
+        {
+            text-align: center;
+            display: block;
+            height: 30px;
+            margin: 0 20px;
+            margin-top: 30px;
+            float: left;
+        }
+        #tabs ul li>a
+        {
+            text-decoration: none;
+            color: rgba(0, 0, 0, 0.842);
+            font-size: 15px;
+            font-family: 'Fira Sans', sans-serif;
+        }
+        #tabs ul li:hover
+        {
+            text-decoration: underline;
+            
+        }
+        #ourbrands,#ResidentialLighting,#CommercialLighting
+        {
+            width: 160px;
+            position: absolute;
+            background-color: white;
+            border: 1px solid rgba(0, 0, 0, 0.137);
+            padding-bottom: 10px;
+            position: absolute;
+            z-index: 1;
+            display: none;
+        }
+        #ResidentialLighting,#CommercialLighting
+        {
+            width: 145px;
+        }
+        #ourbrands ul,#ResidentialLighting ul,#CommercialLighting ul
+        {
+            padding: 8px 0;
+            line-height: 30px;
+        }
+        #ourbrands ul li,#ResidentialLighting ul li,#CommercialLighting ul li
+        {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        #demo ul >li
+        {
+            width: 8px;
+            height: 8px;
+            border-radius: 10px;
+            border: 2px solid transparent;
+            outline: 2px solid white;
+            background: none;
+        }
+        #SELLING-FAST-THIS-MONTH
+        {
+            display: flex;
+            justify-content: center;
+        margin:0 29px;
+        }
+        .h3
+        {
+            display: block;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 900;
+            font-family: "Roboto", "Helvetica", "Arial", "sans-serif";
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+        .card
+        {
+            height: 120%;
+            border: none;
+            overflow: hidden;
+        }
+        .card-body
+        {
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            font-family: "Roboto", "Helvetica", "Arial", "sans-serif";
+            font-style: normal;
+            font-weight: 400;
+        }
+        .card-title
+        {
+            font-size: 19px;
+            color: rgb(9, 9, 141);;
+            margin-top: 30px;
+        }
+        .card-price
+        {
+            font-size: 16px;
+        }
+        .btn-primary
+        {
+            width: 100%;
+            font-size: 13px;
+            padding: 10px 33%;
+            border-radius: 2px;
+            background-color: rgb(8, 8, 117);
+            border: none;
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            align-items: baseline;
+        }
+
+        .overdiv 
+        {
+            background-color: rgba(128, 128, 128, 0.746);
+            width: 95.7%;
+            height: 100%;
+            z-index: 100;
+            position: absolute;
+            justify-content: center;
+        }
+        .overdiv:hover
+        {
+            display: none;
+        }
+        .overdiv>h2
+        {
+            color: white;
+            font-size: 35px;
+            font-family: "Roboto", "sans-serif";
+            position:relative;
+            text-align: center;
+            top: 46%;
+        }
+        
+        .TESTIMONIAL
+        {
+            background-color: rgba(219, 217, 217, 0.212);
+             height: 290px;
+             width: 65%;
+              margin: auto;
+        }
+        .Testimontal
+        {
+            width: 70%;
+            margin: auto;
+        }
+        .Testimontal>p
+        {
+            padding-top: 40px;
+            font-size: 17px;
+            color: rgba(0, 0, 0, 0.548);
+        }
+        .Testimontal>h4
+        {
+            font-size: 19px;
+            color: black;
+        }
+        .checked 
+        {
+            margin-top: 10px;
+            color:rgb(8, 8, 117) ;
+            font-size: 20px;
+        }
+        #buttonshow
+        {
+            position: relative;
+            top:-20%;
+        }
+        .pre
+        {
+            left: 20px;
+            position: absolute;
+            color: white;
+            background: #000;
+            padding: 5px 15px;
+            animation: left 0.5s;
+            border: none;
+            border-radius: 5px;
+            display: none;
+        }
+        .next
+        {
+            right: 20px;
+            position: absolute;
+            color: white;
+            background: #000;
+            padding: 5px 15px;
+            text-align: left;
+            animation: right .5s;
+            border: none;
+            border-radius: 5px;
+            
+        }
+        @keyframes left{
+            0%{
+                left:5%;
+            }
+            100%
+            {
+                left: 20px;
+            }
+        }
+        @keyframes right{
+            0%{
+                right: 5%;
+            }
+            100%
+            {
+                right: 20px;
+            }
+        }
+        .imagebackground
+        {
+            position: relative;
+            left: 32.5%;
+            top: 40px;
+            width: 180px;
+            height: 180px;
+        }
+        .imagebackground>img
+        {
+            border-radius: 100px;
+            width: 180px;
+            height: 180px;
+        }
+        .slides
+        {
+            display: none;
+        }
+        #buttonshow
+        {
+            width: 100%;
+            display: none;
+        }
+        #INSTAGRAM
+        {
+            text-align: center;
+            justify-items: center;
+        }
+        #INSTAGRAM>p
+        {
+            font-size: 17px;
+            color: rgba(0, 0, 0, 0.678);
+            margin-top: 20px;
+        }
+        .Newsletter-Signup
+        {
+            background-image: url("background.jpg");
+            padding-top: 40px;
+    padding-bottom: 40px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center
+        }
+        .Newsletter 
+        { 
+            height: 400px;
+            display:flex;
+            justify-content: center;
+            align-self: center;
+        }
+        
+        .Newsletter>#Signup
+        {
+            height: 300px;
+            text-align: center;
+            color: white;
+        }
+        #Signup h1
+        {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 35px;
+            font-weight: 700;
+        }
+        #Signup p
+        {
+            font-family: "Roboto", "Helvetica", "Arial", "sans-serif";
+            font-size: 20px;
+            font-weight: 300;
+        }
+        /* Style the search field */
+        form
+        {
+            justify-content: center;
+            display: flex;
+        }
+        form.submit ::placeholder
+        {
+            color: rgba(0, 0, 0, 0.438);
+            font-size: 20px;
+            font-weight: 500;
+            word-spacing: -2px;
+        }
+        form.submit input[type=text]
+        {
+            padding: 13px;
+            font-size: 17px;
+            float: left;
+            border: none;
+            width:75%;
+            background: #ffffff;
+            border-radius: 5px;
+        }
+        /* Style the submit button */
+        form.submit button 
+        {
+            border-radius: 5px;
+            margin-left: -5px;
+            float: left;
+            padding: 10px 20px;
+            background: black;
+            color: white;
+            font-size: 17px;
+            border: none;
+            border-left: none; /* Prevent double borders */
+            cursor: pointer;
+            font-style: normal;
+            font-family: "Roboto", "Helvetica", "Arial", "sans-serif";
+        }
+        /* Clear floats */
+        form.submit::after 
+        {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        footer
+        {
+            background-color: rgb(238, 238, 238);
+            border-top: 1px solid #d7d7d7;
+            height: 500px;
+            width: 100%;
+        }
+        .footer 
+        {
+            color: rgba(0, 0, 0, 0.555);
+        }
+        .footer p
+        {
+            text-align: left;
+        }
+        
+        .footer h1
+        {
+            font-size: 20px;
+            color: black;
+            font-weight: 600;
+            padding-left: 40px;
+        }
+        .footer h1:hover
+        {
+            text-decoration: underline;
+        }
+        .footer a
+        {
+            font-size: 17px;
+            color: rgba(0, 0, 0, 0.555);
+            line-height: 25px;
+            padding-left: 40px;
+            display: block;
+            padding-top: 5px;
+            padding-right: 20px;
+        }
+        .copyright
+        {
+            background-color: rgb(238, 238, 238);
+            border-top: 1px solid #bdbdbd;
+            height: 80px;
+            width: 100%;
+        }
+        #copyright 
+        {
+            padding-top: 20px;
+        }
+    </style>
+
+
+</head>
+<script>
+    // for navbar
+  function ourbrandmouseover()
+  {
+      document.getElementById("ourbrands").style.display="block"
+  }
+  function ourbrandmouseleave()
+  {
+    document.getElementById("ourbrands").style.display="none"
+  };
+
+  
+  function ResidentialLightingmouseover()
+  {
+    document.getElementById("ResidentialLighting").style.display="block"
+  }
+  function ResidentialLightingmouseleave()
+  {
+    document.getElementById("ResidentialLighting").style.display="none"
+  };
+
+
+  function CommercialLightingmouseover()
+  {
+    document.getElementById("CommercialLighting").style.display="block"
+  }
+  function CommercialLightingmouseleave()
+  {
+    document.getElementById("CommercialLighting").style.display="none"
+  };
+   
+//   <!-- TESTIMONIAL -->
+
+  var slideIndex = 1;
+        
+        function plusDivs(n) {
+          showDivs(slideIndex += n);
+        }
+        
+        function showDivs(n) {
+          var i;
+          var x = document.getElementsByClassName("slides");
+          if (n == 3) 
+            {document.getElementById("next").style.display="none"}
+            else if (n== 1)
+          {document.getElementById("pre").style.display="none"}
+            else{document.getElementById("next").style.display="block"
+            document.getElementById("pre").style.display="block"}
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+          }
+          x[slideIndex-1].style.display = "block";  
+        }
+        
+     function TESTIMONIALover()
+     {
+         document.getElementById("buttonshow").style.display="block"
+     }
+     function TESTIMONIALleave()
+     {
+         document.getElementById("buttonshow").style.display="none"
+     }
+
+</script>
+<body>
+    <div class="top">Free shipping for orders above 3000</div>
+<!-- navbar -->
+    <nav id="nav">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- logo -->
+            <div class="col-sm-3"></div>
+            <!-- tabs -->
+            <div class="col-sm-6" id="tabs" >
+                <ul>
+                    <li onmouseover="ourbrandmouseover()" onmouseleave="ourbrandmouseleave()">
+                        <a href="#">Our Brands</a>
+                        <!-- pop-down -->
+                        <div id="ourbrands">
+                            <ul>
+                                <li><a href="#">Orient Lighting</a></li>
+                                <li><a href="#">Photon</a></li>
+                                <li><a href="#">Green Vision</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li onmouseover="ResidentialLightingmouseover()" onmouseleave="ResidentialLightingmouseleave()">
+                        <a href="#">Residential Lighting</a>
+                         <!-- pop-down -->
+                         <div id="ResidentialLighting">
+                            <ul>
+                                <li><a href="#">Bulbs</a></li>
+                                <li><a href="#">Down Lights</a></li>
+                                <li><a href="#">Battens</a></li>
+                                <li><a href="#">Panels</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li  onmouseover="CommercialLightingmouseover()" onmouseleave="CommercialLightingmouseleave()">
+                        <a href="#">Commercial Lighting</a>
+                        <!-- pop-down -->
+                        <div id="CommercialLighting">
+                            <ul>
+                                <li><a href="#">Highbay Lights</a></li>
+                                <li><a href="#">Flood Lights</a></li>
+                                <li><a href="#">Down Lights</a></li>
+                                <li><a href="#">Panels</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="#" style="color:rgb(7, 7, 172) ;">Smart Lights</a></li>
+                </ul>
+                <!-- add to card -->
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+ <!-- slider -->
+<div id="demo" class="carousel slide" data-ride="carousel" style=" margin-top: 20px;">
+    <ul class="carousel-indicators">
+      <li data-target="#demo" data-slide-to="0" class="active" id="active"> </li>
+      <li data-target="#demo" data-slide-to="1"></li>
+      <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+    <div class="carousel-inner">
+      <div class="carousel-item active" id="carousel-item">
+        <img src="../flower3.jfif" alt="" width="100%" height="500">
+        <div class="carousel-caption">
+          <h3>Los Angeles</h3>
+          <p>We had such a great time in LA!</p>
+        </div>   
+      </div>
+      <div class="carousel-item">
+        <img src="../flower2.jfif" alt="" width="100%" height="500">
+        <div class="carousel-caption">
+          <h3>Chicago</h3>
+          <p>Thank you, Chicago!</p>
+        </div>   
+      </div>
+      <div class="carousel-item">
+        <img src="../flower1.jfif" alt="" width="100%" height="500">
+        <div class="carousel-caption">
+          <h3>New York</h3>
+          <p>We love the Big Apple!</p>
+        </div>   
+      </div>
+    </div>
+  </div>
+  <!-- SELLING FAST THIS MONTH -->
+  <div class="container-fluid" >
+  <h3 class="h3">SELLING FAST THIS MONTH</h3>
+  <div class="row" style="margin-top: 60px;" id="SELLING-FAST-THIS-MONTH">
+        <div class="col-sm-2" >
+            <div class="card">
+                <img class="card-img-top" src="OL-T518SQ.jpg" alt="Card image" style="width:100%">
+                <div class="card-body">
+                  <h4 class="card-title">4 feet 18 Watt T5 SINGLE BATTEN SQUARE OL-T518SQ</h4>
+                  <p class="card-price">Rs.817</p>
+                  <a href="#" class="btn btn-primary">ADD TO CARD</a>
+                </div>
+            </div>
+            </div>
+            <div class="col-sm-2"style="margin-left: 0;">
+                <div class="card" >
+                    <img class="card-img-top" src="OL-OL40A.jpg" alt="Card image" style="width:100%">
+                    <div class="card-body">
+                      <h4 class="card-title">4 feet 40 Watt OFFICE DOUBLE BATTEN SEMI OVAL OL-OL40A</h4>
+                      <p class="card-price">Rs.1,369</p>
+                      <a href="#" class="btn btn-primary">ADD TO CARD</a>
+                    </div>
+                </div>
+                </div>
+
+                <div class="col-sm-2"style="margin-left: 0;">
+                <div class="card" >
+                    <img class="card-img-top" src="OL-OL20A.jpg" alt="Card image" style="width:100%">
+                    <div class="card-body">
+                      <h4 class="card-title">2 feet 20 Watt OFFICE DOUBLE BATTEN SEMI OVAL OL-OL20A</h4>
+                      <p class="card-price">Rs.1,058</p>
+                      <a href="#" class="btn btn-primary">ADD TO CARD</a>
+                    </div>
+                </div>
+                </div>
+
+                <div class="col-sm-2"style="margin-left: 0;">
+                    <div class="card" >
+                        <img class="card-img-top" src="OL-T506SQ_1c82fcd4-d298-4eb9-87b5-69f84a866a8b.jpg" alt="Card image" style="width:100%">
+                        <div class="card-body">
+                          <h4 class="card-title">1 feet 6 Watt T5 SINGLE BATTEN SQUARE OL-T506SQ</h4>
+                          <p class="card-price">Rs.449</p>
+                          <a href="#" class="btn btn-primary">ADD TO CARD</a>
+                        </div>
+                    </div>
+                    </div>    
+                
+                    <div class="col-sm-2"style="margin-left: 0;">
+                        <div class="card" >
+                            <img class="card-img-top" src="OL-BA03C_E27_ddd9af7e-36a9-40f7-b88c-ef37565fbf30.jpg" alt="Card image" style="width:100%">
+                            <div class="card-body">
+                              <h4 class="card-title">3 Watt CAROL LED BULBS &nbsp;&nbsp; A 50 OL-BA03C</h4>
+                              <p class="card-price">Rs.161</p>
+                              <a href="#" class="btn btn-primary" >ADD TO CARD</a>
+                            </div>
+                        </div>
+                        </div>
+                        
+        </div>
+        </div>
+        <br><br><br>
+        <br>
+        <!-- BULBS -->
+        <div class="container-fluid"  style="width: 79.5%; position: relative;">
+            <h3 class="h3">BULBS</h3>
+            <img src="pf-ef9caeee--LEDbulbs.jpg" width="100%">
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-sm-6" style="height: 340px;" >
+                    <div class="overdiv">
+                        <h2>COC Filament LED Bulb</h2>
+                    </div>
+                    <img src="istockphoto-1298286077-170667a.jpg" alt="" width="100%" height="340px" style="position: relative;">
+                </div>
+                <div class="col-sm-6">
+                    <div class="overdiv"><h2>High Power LED Bulb</h2></div>
+                    <img src="istockphoto-466485780-170667a.jpg" alt="" width="100%" height="340px" style="position: relative;">
+                </div>
+            </div>
+
+            </div>
+        
+            <!-- DOWN LIGHTS -->
+            <div class="container-fluid"  style="width: 79.5%;">
+                <h3 class="h3">DOWN LIGHTSBULBS</h3>
+                <img src="pf-9caeee63--LEDdownlights.jpg" width="100%">
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-sm-6" style="overflow: hidden;height: 340px;">
+                        <div class="overdiv"><h2>COB Downlight</h2></div>
+                        <img src="architectural-light-design-with-led-downlights-p060519-1.jpg" alt="" width="100%" height="340px" style="position: relative;">
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="overdiv"><h2>SMD Downlight</h2></div>
+                        <img src="contemporary-kitchen-with-bleached-color-cabinets-under-cabinet-lighting-white-quartz-countertops.jpg" alt="" width="100%" height="340px" style="position: relative;">
+                    </div>
+                </div>
+    
+                </div>
+
+                <!-- BATTENS -->
+                <div class="container-fluid"  style="width: 79.5%;">
+                    <h3 class="h3">BATTENS</h3>
+                    <img src="pf-aeee63e1--LEDbattensandtubes.jpg" width="100%">
+                    <div class="row" style="margin-top: 30px;">
+
+                        <div class="col-sm-4" style="overflow: hidden;height: 260px;">
+                            <div class="overdiv"style="width: 93.5%;">
+                                <h2>T5 Batten</h2>
+                            </div>
+                            <img src="H348ae14a40f342b890b4b3697f9f69c81.jpg" alt="" width="100%" height="260px" style="position: relative;">
+                        </div>
+
+                        <div class="col-sm-4" style="overflow: hidden;height: 260px;">
+                            <div class="overdiv" style="width: 93.5%;">
+                                <h2>T8 Batten</h2>
+                            </div>
+                            <img src="BAT_T8_3.jpg" alt="" width="100%" height="260px" style="position: relative;">
+                        </div>
+
+                        <div class="col-sm-4"  style="overflow: hidden;height: 260px;">
+                            <div class="overdiv" style="width: 93.5%;">
+                                <h2>Double batten</h2>
+                            </div>
+                            <img src="contemporary-kitchen-with-bleached-color-cabinets-under-cabinet-lighting-white-quartz-countertops.jpg" alt="" width="100%" height="260px" style="position: relative;">
+                        </div>
+                    </div>
+        
+                    </div>
+
+                    <!-- PANELS -->
+                    <div class="container-fluid"  style="width: 79.5%;">
+                        <h3 class="h3">PANELS</h3>
+                        <img src="pf-b0fed06c--panels.jpg" width="100%">
+                        <div class="row" style="margin-top: 30px;">
+
+                            <div class="col-sm-4" style="overflow: hidden;height: 260px;">
+                                <div class="overdiv" style="width: 93.5%;">
+                                    <h2 id="h2">Recessed Panel</h2>
+                                </div>
+                                <img src="H348ae14a40f342b890b4b3697f9f69c81.jpg" alt="" width="100%" height="260px" style="position: relative;">
+                            </div>
+
+                            <div class="col-sm-4" style="overflow: hidden;height: 260px;">
+                                <div class="overdiv"style="width: 93.5%;">
+                                    <h2>Surface Panel</h2>
+                                </div>
+                                <img src="BAT_T8_3.jpg" alt="" width="100%" height="260px" style="position: relative;">
+                            </div>
+
+                            <div class="col-sm-4"  style="overflow: hidden;height: 260px;">
+                                <div class="overdiv" style="width: 93.5%;">
+                                    <h2>Ceiling Panel</h2>
+                                </div>
+                                <img src="contemporary-kitchen-with-bleached-color-cabinets-under-cabinet-lighting-white-quartz-countertops.jpg" alt="" width="100%" height="260px" style="position: relative;">
+                            </div>
+                        </div>
+            
+                        </div>
+
+                        <!-- COMMERCIAL LIGHTS -->
+                        <div class="container-fluid"  style="width: 79.5%;">
+                            <h3 class="h3">COMMERCIAL LIGHTS</h3>
+                            <img src="pf-fed06c0f--commerciallights.jpg" width="100%">
+                            </div>
+
+                            <!-- TESTIMONIAL -->
+                            <br>
+                                <h3 class="h3">TESTIMONIAL</h3>
+                                <br>
+                                <div class="container" style="height: 500px; position: relative;" onmouseover="TESTIMONIALover()" onmouseleave="TESTIMONIALleave()">
+                                    <div class="TESTIMONIAL slides" style="display: block;">
+                                        <div class="Testimontal" style="text-align: center;">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <p>aietf uefg uwaga wufgdv ukegvwdu wudvw uxgwv uxwvxuwgv d uwvx wudv xwvdx  wxvw  dwjvd wdjvw</p>
+                                        <h4> namem adjkf</h4>
+                                        <div class="imagebackground"><img src="../flower1.jfif" alt=""></div>
+                                    </div>
+                                    </div>
+                            
+                            <div class="TESTIMONIAL slides">
+                                <div class="Testimontal" style="text-align: center;">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <p>aietf uefg uwaga wufgdv ukegvwdu wudvw uxgwv uxwvxuwgv d uwvx wudv xwvdx  wxvw  dwjvd wdjvw</p>
+                                <h4> namem adjkf</h4>
+                                <div class="imagebackground"><img src="../flower2.jfif" alt=""></div>
+                            </div>
+                            </div>
+
+                            <div class="TESTIMONIAL slides">
+                                <div class="Testimontal" style="text-align: center;">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <p>aietf uefg uwaga wufgdv ukegvwdu wudvw uxgwv uxwvxuwgv d uwvx wudv xwvdx  wxvw  dwjvd wdjvw</p>
+                                <h4> namem adjkf</h4>
+                                <div class="imagebackground"><img src="../flower3.jfif" alt=""></div>
+                            </div>
+                            </div>
+                            <div id="buttonshow">
+                                <button class="pre" id="pre" onclick="plusDivs(-1)">&#10094</button>
+                                <button class="next" id="next" onclick="plusDivs(1)">&#10095</button>
+                            </div>
+                            </div>
+
+                            <!-- INSTAGRAM FEED-->
+                        <div class="container">
+                            <h3 class="h3">COMMERCIAL LIGHTS</h3>
+                            <br>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-3" id="INSTAGRAM">
+                                    <img src="INSTAGRAMimage1.png"alt="" width="60px">
+                                    <p style="font-size: 18px;"> Outstanding Customer Services</p>
+                                </div>
+                                <div class="col-sm-3" id="INSTAGRAM">
+                                    <img src="INSTAGRAMimage2.png" alt="" width="60px">
+                                    <p  style="font-size: 18px;">Nationwide Delivery </p>
+                                </div>
+                                <div class="col-sm-3" id="INSTAGRAM">
+                                    <img src="INSTAGRAMimage3.png" alt="" width="60px">
+                                    <p  style="font-size: 18px;">1 year warranty</p>
+                                </div>
+                                <div class="col-sm-3" id="INSTAGRAM">
+                                    <img src="INSTAGRAMimage4.png" alt="" width="60px">
+                                    <p  style="font-size: 18px;">Secure Online Checkout</p>
+                                </div>
+                            </div>
+                            </div>
+                            <br>
+                            <br>
+                            <!-- Newsletter Signup -->
+                            <div class="container-fluid Newsletter-Signup">
+                                <br><br>
+                            <div class="container Newsletter">
+                                <div class="col-sm-8" id="Signup">
+                                    <h1>Newsletter Signup</h1>
+                                        <p>Sign Up for exclusive updates, new arrivals & insider-only discounts</p>
+                                        <br><br>
+                                        <form class="submit" action="action_page.php">
+                                            <input type="text" placeholder="Enter your email" name="search">
+                                            <button type="submit"><i style="font-style: normal;">SUBCRIBE</i></button>
+                                          </form><br><br>
+                                          <div class="icons">
+                                              <img src="INSTAGRAMimage1.png" alt="">
+                                              <img src="INSTAGRAMimage1.png" alt="">
+                                              <img src="INSTAGRAMimage1.png" alt="">
+                                          </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <footer><br>
+                            <div class="container footer">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <img src="footerimage.png" alt="" width="60%">
+                                        <p>Adnan Cooperation Orient Electronics
+                                            Gate # 2, 26 km, Multan Rd, Maraka,
+                                            Maraka Village, Lahore, Punjab 54000</p>
+                                    </div>
+                                <!-- contact -->
+                                    <div class="col-sm-3"><br>
+                                        <h1>Contact us</h1>
+                                        <a href="#">&nbsp; sales@orientlighting.pk</a>
+                                        <a href="#">&nbsp; care@orientlighting.pk</a>
+                                            <a href="#">042111111660 EXT 180</a>
+                                            <a href="#"> 0300-0568567</a>
+                                            <a href="#"> 0300-1674368</a>
+                                            <a href="#"> 10AM - 7PM (Monday - Friday)</a>
+                                            <a href="#"> &nbsp;&nbsp;Contact Us</a>
+                                    </div>
+                                    <!-- Company -->
+                                    <div class="col-sm-3"><br>
+                                        <h1>Company</h1>
+                                        <a href="#">&nbsp; Become a Distributor</a>
+                                        <a href="#">&nbsp; Terms & Services</a>
+                                            <a href="#">Privacy Policy</a>
+                                            <a href="#">Return & Exchange</a>
+                                            <a href="#">Warranty & Claim</a>
+                                            <a href="#">&nbsp;&nbsp; Blog</a>
+                                            <a href="#"></a>
+                                    </div>
+
+                                    <!-- Shop Now -->
+                                    <div class="col-sm-3"><br>
+                                        <h1>Shop Now</h1>
+                                        <img src="Daraz_logo_2.png" alt="" width="80px" style="margin-left: 40px;">
+                                    </div>
+
+                            </div>
+                            </div>
+                        </footer>
+                        <div class="copyright">
+                        <div class="container" id="copyright">
+                            <p>All Rights reserved &copy; 2022 | Orient Lighting | Developed & Marketed by Xcentric Services</p>
+                        </div></div>
+
+                        
+                        
+                        
+                        
+                        
+                        
+</body>
+</html>

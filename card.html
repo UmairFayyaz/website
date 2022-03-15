@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&?family=Roboto:wght@400;900&family=Roboto&display=swap" rel="stylesheet">
+
+<!-- //bootstrap -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Font Awesome Icon Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #nav
+        {
+            padding: 0;
+            margin: 0;
+            box-shadow: 4px 2px 6px #88888880;
+            height:80px;
+        }
+        #tabs>ul
+        {
+            display: flex;
+            justify-content: center;
+        }
+        #tabs ul>li
+        {
+            text-align: center;
+            display: block;
+            height: 30px;
+            margin: 0 20px;
+            margin-top: 30px;
+            float: left;
+        }
+        #tabs ul li>a
+        {
+            text-decoration: none;
+            font-size: 14px;
+            font-style: normal;
+            color: #333;
+            letter-spacing: 0.3px;
+            line-height: 1.4;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-weight: 400;
+        }
+        #tabs ul li:hover
+        {
+            text-decoration: underline;
+            
+        }
+        #ourbrands,#ResidentialLighting,#CommercialLighting
+        {
+            width: 160px;
+            position: absolute;
+            background-color: white;
+            border: 1px solid rgba(0, 0, 0, 0.137);
+            padding-bottom: 10px;
+            position: absolute;
+            z-index: 1;
+            display: none;
+        }
+        #ResidentialLighting,#CommercialLighting
+        {
+            width: 145px;
+        }
+        #ourbrands ul,#ResidentialLighting ul,#CommercialLighting ul
+        {
+            padding: 8px 0;
+            line-height: 30px;
+        }
+        #ourbrands ul li,#ResidentialLighting ul li,#CommercialLighting ul li
+        {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .detail h1
+        {
+            font-size: 28px;
+            font-weight: 400;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        }
+        .detail p
+        {
+            font-size: 18px;
+            font-weight: 400;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        }
+        .detail i
+        {
+            position: relative;
+            font-size: 19px;
+            font-weight: 800;
+            font-style: normal;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        }
+        .detail i> p
+        {
+            border: 1px solid black;
+            padding:0 10px;
+            margin-top: 18px;
+            margin-left: 20px;
+            width: 108px;
+            position: absolute;
+            font-size: 18px;
+            font-weight: 800;
+            font-style: normal;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            left: 100%;
+            top: -100%;
+        }
+        .detail ul
+        {
+            margin-top: 20px;
+            display: block;
+            text-decoration: none;
+        }
+        .detail ul>li
+        {
+            margin-top: 22px;
+            display: block;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .dropdown button
+        {
+            color: black;
+            margin-top: 5px;
+        }
+        .dropdown button:hover
+        {
+            background: none;
+            color: black;
+        }
+        .dropdown-toggle
+        {
+            padding: 10px 10px;
+            background: white;
+            color: black;
+            border:1px solid black;
+            border-radius: 0%;
+        }
+        .dropdown-toggle p
+        {
+            text-align: left;
+            width: 200px;
+            color: black;
+            text-decoration: none;
+            position: absolute;
+        }
+        .dropdown-toggle:hover{
+            color: black;
+            border:1px solid black;
+        }
+        .btn
+        {
+            text-align: right;
+            background: none;
+        }
+        
+        .detail>button
+        {
+            font-size: 18px;
+            margin-top: 18px;
+            padding: 10px 35px;
+            color: rgba(0, 0, 255, 0.473);
+            background: white;
+            border:1px solid rgba(0, 0, 255, 0.473);
+        }
+        .detail>button:hover
+        {
+            color: rgba(0, 0, 255, 0.788);
+            background: white;
+            border:1px solid rgba(0, 0, 255, 0.788);
+        }
+        .Frequently-Bought-Together
+        {
+            position: relative;
+        }
+        .Frequently-Bought-Together img
+        {
+            width: 130px;
+            background: #000;
+        }
+        .Frequently-Bought-Together img:hover
+        {
+            filter: blur(4px);
+        }
+        .totalprice
+        {
+            position: relative;
+            display: flex;
+            float: inherit;
+        }
+        .totalprice i
+        {
+            color: #000;
+        }
+        .totalprice a
+        {margin-top: 40px;
+            color: blue;
+        }
+        .ADD-SELECTED-TO-CART
+        {
+            padding-top: 10px;
+        }
+        .ADD-SELECTED-TO-CART>button
+        {
+            font-size: 15px;
+            padding:10px 10px;
+            font-weight: 600;
+            border: none;
+            background-color:rgba(4, 4, 163, 0.589) ;
+            color: white;
+        }
+        .ADD-SELECTED-TO-CART>button:hover
+        {
+            background-color: rgb(4, 4, 87);
+        }
+        /* ---------------------------- */
+        .checkbox >i
+        {
+            color: #000;
+        }
+        .checkbox >i:hover
+        {
+            color: rgba(0, 0, 0, 0.452);
+        }
+        .checkbox .dropdown>i
+        {
+            font-size: 15px;
+            top: 5px;
+        }
+        
+        .checkbox .dropdown button
+        {
+            color: black;
+            margin-top: 5px;
+        }
+        .checkbox .dropdown button:hover
+        {
+            background: none;
+            color: black;
+        }
+        .checkbox .dropdown-toggle
+        {
+            padding: 0%;
+            padding-right: 2px;
+            padding-left: 2px;
+            width: 130px;
+            background: white;
+            color: black;
+            border:1px solid black;
+            border-radius: 0%;
+        }
+        .checkbox .dropdown-toggle p
+        {
+            text-align: left;
+            color: black;
+            text-decoration: none;
+            position: absolute;
+        }
+        .checkbox .dropdown-toggle:hover{
+            color: black;
+            border:1px solid black;
+        }
+        .Description
+        {
+            margin-top: 30px;
+        }
+         .Description h1
+         {
+             font-size: 20px;
+            font-style: normal;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+         }
+         .Description p
+         {
+             font-size: 13px;
+            font-style: normal;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+         }
+         .Description li
+         {
+             margin-left: 30px;
+             font-size: 13px;
+            font-style: normal;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+         }
+         .Description a
+         {
+             color: blue;
+             text-decoration: underline;
+             margin-left: 30px;
+             font-size: 18px;
+             font-weight: 400;
+            font-style: normal;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+         }
+         
+
+         #YOU-MAY-ALSO-LIKE
+         {
+             width:73%;
+         }
+         #YOU-MAY-ALSO-LIKE>h1
+         {
+             margin-top: 30px;
+             font-size: 20px;
+             font-weight: 400;
+            font-style: normal;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            display: flex;
+            justify-content: center;
+         }
+        .card
+        {
+            width: 25%;
+            margin:0;
+            padding: 5px;
+            border: none;
+        }
+        .card-body
+        {
+            margin:0;
+            padding:0;
+
+        }
+        .card-title
+        {
+            font-size:12px;
+            font-weight:400;
+            font-style: normal;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        }
+        .card-title:hover
+        {
+            font-style:underline;
+        }
+        .card-price
+        {
+            font-size:20px;
+            font-weight:700;
+        }
+
+
+
+
+
+        footer
+        {
+            background-color: rgb(238, 238, 238);
+            border-top: 1px solid #d7d7d7;
+            height: 500px;
+            width: 100%;
+        }
+        .footer 
+        {
+            color: rgba(0, 0, 0, 0.555);
+        }
+        .footer p
+        {
+            text-align: left;
+        }
+        
+        .footer h1
+        {
+            font-size: 20px;
+            color: black;
+            font-weight: 600;
+            padding-left: 40px;
+        }
+        .footer h1:hover
+        {
+            text-decoration: underline;
+        }
+        .footer a
+        {
+            font-size: 17px;
+            color: rgba(0, 0, 0, 0.555);
+            line-height: 25px;
+            padding-left: 40px;
+            display: block;
+            padding-top: 5px;
+            padding-right: 20px;
+        }
+        .copyright
+        {
+            background-color: rgb(238, 238, 238);
+            border-top: 1px solid #bdbdbd;
+            height: 80px;
+            width: 100%;
+        }
+        #copyright 
+        {
+            padding-top: 20px;
+        }
+        </style>
+        </head>
+        <body>
+            <script>
+                 // for navbar
+  function ourbrandmouseover()
+  {
+      document.getElementById("ourbrands").style.display="block"
+  }
+  function ourbrandmouseleave()
+  {
+    document.getElementById("ourbrands").style.display="none"
+  };
+
+  
+  function ResidentialLightingmouseover()
+  {
+    document.getElementById("ResidentialLighting").style.display="block"
+  }
+  function ResidentialLightingmouseleave()
+  {
+    document.getElementById("ResidentialLighting").style.display="none"
+  };
+
+
+  function CommercialLightingmouseover()
+  {
+    document.getElementById("CommercialLighting").style.display="block"
+  }
+  function CommercialLightingmouseleave()
+  {
+    document.getElementById("CommercialLighting").style.display="none"
+  };
+// -----------------------------------------------------------
+  function daylight()
+  {
+      document.getElementById("daylight").style.display="block";
+      document.getElementById("warmlight").style.display="none";
+
+  }
+  function warmlight()
+  {
+      document.getElementById("warmlight").style.display="block";
+      document.getElementById("daylight").style.display="none";
+
+  };
+  // -----------------------------------------------------------
+  function checkbox1daylight()
+  {
+      document.getElementById("checkbox1-daylight").style.display="block";
+      document.getElementById("checkbox1-warmlight").style.display="none";
+
+  };
+  function checkbox1warmlight()
+  {
+      document.getElementById("checkbox1-warmlight").style.display="block";
+      document.getElementById("checkbox1-daylight").style.display="none";
+
+  };
+//   --------------------------------------------------------------
+function checkbox2daylight()
+  {
+      document.getElementById("checkbox2-daylight").style.display="block";
+      document.getElementById("checkbox2-warmlight").style.display="none";
+
+  };
+  function checkbox2warmlight()
+  {
+      document.getElementById("checkbox2-warmlight").style.display="block";
+      document.getElementById("checkbox2-daylight").style.display="none";
+
+  };
+
+
+            </script>
+<!-- navbar -->
+    <nav id="nav">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- logo -->
+            <div class="col-sm-3"></div>
+            <!-- tabs -->
+            <div class="col-sm-6" id="tabs" >
+                <ul>
+                    <li onmouseover="ourbrandmouseover()" onmouseleave="ourbrandmouseleave()">
+                        <a href="#">Our Brands</a>
+                        <!-- pop-down -->
+                        <div id="ourbrands">
+                            <ul>
+                                <li><a href="#">Orient Lighting</a></li>
+                                <li><a href="#">Photon</a></li>
+                                <li><a href="#">Green Vision</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li onmouseover="ResidentialLightingmouseover()" onmouseleave="ResidentialLightingmouseleave()">
+                        <a href="#">Residential Lighting</a>
+                         <!-- pop-down -->
+                         <div id="ResidentialLighting">
+                            <ul>
+                                <li><a href="#">Bulbs</a></li>
+                                <li><a href="#">Down Lights</a></li>
+                                <li><a href="#">Battens</a></li>
+                                <li><a href="#">Panels</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li  onmouseover="CommercialLightingmouseover()" onmouseleave="CommercialLightingmouseleave()">
+                        <a href="#">Commercial Lighting</a>
+                        <!-- pop-down -->
+                        <div id="CommercialLighting">
+                            <ul>
+                                <li><a href="#">Highbay Lights</a></li>
+                                <li><a href="#">Flood Lights</a></li>
+                                <li><a href="#">Down Lights</a></li>
+                                <li><a href="#">Panels</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="#" style="color:rgb(7, 7, 172) ;">Smart Lights</a></li>
+                </ul>
+                <!-- add to card -->
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+    </div>
+</nav>
+<br><br><br>
+
+<!-- ----------------------------------------------------------- -->
+<div class="container" >
+    <div class="row">
+        <div class="col-sm-6" >
+            <img src="card1.jpg" alt="" width="100%">
+        </div>
+        <div class="col-sm-6" >
+            <div class="detail">
+                <h1>4 feet 18 Watt T5 SINGLE BATTEN SQUARE OL-T518SQ</h1>
+                <p>SKU: 500000004249</p>
+                <i>Rs.817<p>SOLD OUT</p></i>
+                <ul>
+                    <li>Color temperature</li>
+                    <div class="dropdown" >
+                        <button type="button" class="btn btn-primary dropdown-toggle" style="width: 200px;" data-toggle="dropdown">
+                            <p id="daylight" >DAY LIGHT</p>
+                            <p id="warmlight" style="display: none;">WARM LIGHT</p>
+                        <div class="dropdown-menu" style="background: white;">
+                          <a class="dropdown-item" href="#" onclick="daylight()">DAY LIGHT</a>
+                          <a class="dropdown-item" href="#" onclick="warmlight()">WARM LIGHT </a>
+                          </div>
+                          </button>
+                    </div>
+                </ul>
+                <!-- SOLD OUT -->
+                <button>SOLD OUT</button><br><br>
+                <!-- Frequently Bought Together -->
+                <div class="Frequently-Bought-Together" style="position:relative;display: block;display: inline-block;">
+                <h1>Frequently Bought Together</h1>
+                <br>
+                <img src="OL-T506SQ_1c82fcd4-d298-4eb9-87b5-69f84a866a8b.jpg" alt="">
+                <img src="12_W_candy_bulb_E-27_292x292.png" alt="" style="margin-left: 30px;">
+            </div>
+
+            
+                <!-- totalprice -->
+                <div class="totalprice">
+                    <p style="font-size: 30px; margin-top: -100px;padding-left: 140px;">+</p>
+                    <br>
+                    <i style="position:absolute ;margin-top: 20px;">Total Price:<a>Rs.1,448.99</a></i>
+            </div>
+            
+            <!-- ADD SELECTED TO CART -->
+            <br>
+            <div class="ADD-SELECTED-TO-CART">
+                <button>ADD SELECTED TO CART</button><br><br>
+            </div>
+
+            <!-- checkbox -->
+            <div class="checkbox">
+                <i style="font-size: 16px;" >
+                    <input type="checkbox" name="checkbox" >&nbsp; This Item: 4 feet 18 Watt T5 SINGLE BATTEN SQUARE OL-T518SQ</i>
+                    <div class="dropdown" >
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            <p id="checkbox1-daylight" >DAY LIGHT</p>
+                            <p id="checkbox1-warmlight" style="display: none;">WARM LIGHT</p>
+                            </button>
+                            <i style="margin-top: 20px;">&nbsp;Rs.695.00/<a style="color: blue;">Rs.817.00</a></i>
+                        <div class="dropdown-menu" style="background: white;">
+                          <a class="dropdown-item" href="#" onclick="checkbox1daylight()">DAY LIGHT</a>
+                          <a class="dropdown-item" href="#" onclick="checkbox1warmlight()">WARM LIGHT </a>
+                          </div>
+                    </div>
+            </div>
+
+            <!-- checkbox  1 -->
+
+            <br>
+            
+            <div class="checkbox">
+                <i style="font-weight: 300; font-size: 16px;">
+                    <input type="checkbox" name="checkbox">&nbsp; 1 feet 6 Watt T5 SINGLE BATTEN SQUARE OL-T506SQ</i>
+                <div class="dropdown" >
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                        <p id="checkbox2-daylight" >DAY LIGHT</p>
+                        <p id="checkbox2-warmlight" style="display: none;">WARM LIGHT</p>
+                    </button>
+                <i style="margin-top: 20px;">&nbsp;Rs.395.00/<a style="color: blue;">Rs.449.00</a></i>
+                    <div class="dropdown-menu" style="background: white;">
+                      <a class="dropdown-item" href="#" onclick="checkbox2daylight()">DAY LIGHT</a>
+                      <a class="dropdown-item" href="#" onclick="checkbox2warmlight()">WARM LIGHT </a>
+                      </div>
+                </div>
+            </div>
+
+             <!-- checkbox  2 -->
+
+             <br>
+            
+             <div class="checkbox" >
+                <i style="font-weight: 300; font-size: 16px;">
+                    <input type="checkbox" name="checkbox">&nbsp; 1 feet 6 Watt T5 SINGLE BATTEN SQUARE OL-T506SQ
+                </i>
+                <div class="dropdown" >
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                        <p id="checkbox2-daylight" >DAY LIGHT</p>
+                        <p id="checkbox2-warmlight" style="display: none;">WARM LIGHT</p>
+                    </button>
+                    <i style="margin-top: 20px;">&nbsp;Rs.395.00/<a style="color: blue;">Rs.449.00</a></i>
+                    <div class="dropdown-menu" style="background: white;">
+                      <a class="dropdown-item" href="#" onclick="checkbox2daylight()">DAY LIGHT</a>
+                      <a class="dropdown-item" href="#" onclick="checkbox2warmlight()">WARM LIGHT </a>
+                      </div>
+                </div>
+            </div>
+        </div>
+        <div class="Description">
+            <h1>Description</h1>
+            <p>Buy Online 18 Watt T5 Single Batten providing bright lighting that lasts longer and saves up to 80% of energy. 
+                It is smartly and uniquely designed using Aluminium to provide maximum usability, along with an impressive
+                 heat sink, making it an ideal replacement for the old incandescent bulbs.</p>
+                 <ul>
+                     <li>High Representation 75CRI For Bright Colours</li>
+                     <br>
+                     <a href="#">Read more</a>
+                 </ul>
+        </div>
+        </div>
+    </div>
+</div>
+<!-- -------------------------------------------------------------- -->
+
+
+<!-- YOU MAY ALSO LIKE -->
+<div class="container-fluid" id="YOU-MAY-ALSO-LIKE" >
+    <h1>YOU MAY ALSO LIKE</h1>
+    <div class="container-fluid" >
+        <div class="row" style="margin-top: 60px;" id="SELLING-FAST-THIS-MONTH">
+
+                  <div class="card">
+                      <img class="card-img-top" src="images/card/card image 1.jpg" alt="Card image" style="width:100%">
+                      <div class="card-body">
+                        <h1 class="card-title">18 Watt CANDY LED BULBS CP 80 OL-BA18A</h1>
+                        <p class="card-price">Rs.460</p>
+                      </div>
+                  </div>
+
+                      <div class="card" >
+                          <img class="card-img-top" src="images/card/card image 2.jpg" alt="Card image" style="width:100%;" >
+                          <div class="card-body">
+                            <h1 class="card-title">12 Watt CANDY LED BULBS CP 67 OL-BA12A</h1>
+                            <p class="card-price">Rs.242</p>
+                          </div>
+                      </div>
+      
+                      <div class="card" >
+                          <img class="card-img-top" src="images/card/card image 3.jpg" alt="Card image" style="width:100%">
+                          <div class="card-body">
+                            <h1 class="card-title">7 Watt CANDY LED BULBS CP 60 OL-BA07A</h1>
+                            <p class="card-price">Rs.196</p>
+                          </div>
+                      </div>
+      
+                          <div class="card" >
+                              <img class="card-img-top" src="images/card/card image 4.jpg" alt="Card image" style="width:100%">
+                              <div class="card-body">
+                                <h1 class="card-title">18 Watt BRIGHT MOON COB ROUND OL-DL18BC</h1>
+                                <p class="card-price">Rs.1,978</p>
+                              </div>
+                          </div>
+                      
+                            
+              </div>
+              </div>
+</div>
+<br>
+<br>
+<br>
+
+<!-- -----------------------------------------------------------footer -->
+<footer><br>
+    <div class="container footer">
+        <div class="row">
+            <div class="col-sm-3">
+                <img src="footerimage.png" alt="" width="60%">
+                <p>Adnan Cooperation Orient Electronics
+                    Gate # 2, 26 km, Multan Rd, Maraka,
+                    Maraka Village, Lahore, Punjab 54000</p>
+            </div>
+        <!-- contact -->
+            <div class="col-sm-3"><br>
+                <h1>Contact us</h1>
+                <a href="#">&nbsp; sales@orientlighting.pk</a>
+                <a href="#">&nbsp; care@orientlighting.pk</a>
+                    <a href="#">042111111660 EXT 180</a>
+                    <a href="#"> 0300-0568567</a>
+                    <a href="#"> 0300-1674368</a>
+                    <a href="#"> 10AM - 7PM (Monday - Friday)</a>
+                    <a href="#"> &nbsp;&nbsp;Contact Us</a>
+            </div>
+            <!-- Company -->
+            <div class="col-sm-3"><br>
+                <h1>Company</h1>
+                <a href="#">&nbsp; Become a Distributor</a>
+                <a href="#">&nbsp; Terms & Services</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Return & Exchange</a>
+                    <a href="#">Warranty & Claim</a>
+                    <a href="#">&nbsp;&nbsp; Blog</a>
+                    <a href="#"></a>
+            </div>
+
+            <!-- Shop Now -->
+            <div class="col-sm-3"><br>
+                <h1>Shop Now</h1>
+                <img src="Daraz_logo_2.png" alt="" width="80px" style="margin-left: 40px;">
+            </div>
+
+    </div>
+    </div>
+</footer>
+<div class="copyright">
+<div class="container" id="copyright">
+    <p>All Rights reserved &copy; 2022 | Orient Lighting | Developed & Marketed by Xcentric Services</p>
+</div></div>
+
+</body>
+</html>
